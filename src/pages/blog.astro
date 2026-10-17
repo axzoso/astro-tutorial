@@ -1,5 +1,6 @@
 ---
 import Navigation from '../components/Navigation.astro';
+import Footer from '../components/Footer.astro';
 import '../styles/global.css';
 const pageTitle = "Blog";
 ---
@@ -17,7 +18,7 @@ const pageTitle = "Blog";
         <Navigation />
 
 		<h1>{pageTitle}</h1>
-        
+
         <p>Questo è il mio archivio degli articoli del mio sito blog.</p>
 
         <ul>
@@ -25,5 +26,6 @@ const pageTitle = "Blog";
             <li><a href="/posts/post-2/">Post 2</a></li>
             <li><a href="/posts/post-3/">Post 3</a></li>
         </ul>
+        <Footer />
 	</body>
 </html>
