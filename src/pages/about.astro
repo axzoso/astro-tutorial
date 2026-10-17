@@ -1,4 +1,19 @@
 ---
+const pageTitle = "Su di me";
+const identity = {
+	firstName: "Claudio Antonucci",
+	country: "Italia",
+    occupation: "Web Developer",
+    hobbies: ["musica", "sport", "fotografia", "cinema"]
+};
+const skills = ["HTML", "CSS", "JavaScript"] 
+
+const happy = true;
+const finished = false;
+const goal = 3;
+const skillColor = "navy";
+const fontWeight = "bold";
+const textCase = "uppercase";
 ---
 
 <html lang="en">
@@ -8,15 +23,51 @@
 		<link rel="icon" href="/favicon.ico" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
-		<title>About</title>
+		<title>{pageTitle}</title>
+        <style define:vars={{skillColor, fontWeight, textCase}}>
+            h1 {
+                color: purple;
+                font-size: 4rem;
+            }
+            .skill {
+                color: var(--skillColor);
+                font-weight: var(--fontWeight);
+                text-transform: var(--textCase);
+  }
+        </style>
 	</head>
 	<body>
         <a href="/">Home </a>
         <a href="/about/">About </a>
         <a href="/blog/">Blog</a>
 
-		<h1>This is my new Astro about page!</h1>
+		<h1>{pageTitle}</h1>
         <h2>About this project</h2>
         <p>This is a simple about page for my Astro project.</p>
+
+        <p>Ecco alcune informazioni su di me:</p>
+        <ul>
+            <li><strong>Nome:</strong> {identity.firstName}</li>
+            <li><strong>Paese:</strong> {identity.country}</li>
+            <li><strong>Occupazione:</strong> {identity.occupation}</li>
+        </ul>
+
+        <h3>Hobbies</h3>
+        <ul>
+            {identity.hobbies.map((hobby) => (
+                <li>{hobby}</li>
+            ))}
+        </ul>
+
+        <h3>Skills</h3>
+        <ul>
+            {skills.map((skill) => (
+                <li class="skill">{skill}</li>
+            ))}
+        </ul>
+
+        {happy && <p>Sono felice di essere qui!</p>}
+        {finished && <p>Ho finito questo tutorial!</p>}
+        {goal === 3 ? <p>Il mio obiettivo è finire in 3 giorni.</p> : <p>Il mio obiettivo non è 3 giorni.</p>}
 	</body>
 </html>
