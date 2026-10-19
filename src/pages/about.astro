@@ -1,7 +1,5 @@
 ---
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
-import '../styles/global.css';
+import BaseLayout from '../layouts/BaseLayout.astro';
 const pageTitle = "Su di me";
 const identity = {
 	firstName: "Claudio Antonucci",
@@ -18,59 +16,44 @@ const skillColor = "navy";
 const fontWeight = "bold";
 const textCase = "uppercase";
 ---
+<BaseLayout pageTitle={pageTitle}>
+    <style define:vars={{skillColor, fontWeight, textCase}}>
+    h1 {
+        color: purple;
+        font-size: 4rem;
+    }
+    .skill {
+        color: var(--skillColor);
+        font-weight: var(--fontWeight);
+        text-transform: var(--textCase);
+}
+</style>
+    <h2>About this project</h2>
+    <p>This is a simple about page for my Astro project.</p>
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{pageTitle}</title>
-        <style define:vars={{skillColor, fontWeight, textCase}}>
-            h1 {
-                color: purple;
-                font-size: 4rem;
-            }
-            .skill {
-                color: var(--skillColor);
-                font-weight: var(--fontWeight);
-                text-transform: var(--textCase);
-  }
-        </style>
-	</head>
-	<body>
-        <Header />
+    <p>Ecco alcune informazioni su di me:</p>
+    <ul>
+        <li><strong>Nome:</strong> {identity.firstName}</li>
+        <li><strong>Paese:</strong> {identity.country}</li>
+        <li><strong>Occupazione:</strong> {identity.occupation}</li>
+    </ul>
 
-		<h1>{pageTitle}</h1>
-        <h2>About this project</h2>
-        <p>This is a simple about page for my Astro project.</p>
+    <h3>Hobbies</h3>
+    <ul>
+        {identity.hobbies.map((hobby) => (
+            <li>{hobby}</li>
+        ))}
+    </ul>
 
-        <p>Ecco alcune informazioni su di me:</p>
-        <ul>
-            <li><strong>Nome:</strong> {identity.firstName}</li>
-            <li><strong>Paese:</strong> {identity.country}</li>
-            <li><strong>Occupazione:</strong> {identity.occupation}</li>
-        </ul>
+    <h3>Skills</h3>
+    <ul>
+        {skills.map((skill) => (
+            <li class="skill">{skill}</li>
+        ))}
+    </ul>
 
-        <h3>Hobbies</h3>
-        <ul>
-            {identity.hobbies.map((hobby) => (
-                <li>{hobby}</li>
-            ))}
-        </ul>
+    {happy && <p>Sono felice di essere qui!</p>}
+    {finished && <p>Ho finito questo tutorial!</p>}
+    {goal === 3 ? <p>Il mio obiettivo è finire in 3 giorni.</p> : <p>Il mio obiettivo non è 3 giorni.</p>}
 
-        <h3>Skills</h3>
-        <ul>
-            {skills.map((skill) => (
-                <li class="skill">{skill}</li>
-            ))}
-        </ul>
-
-        {happy && <p>Sono felice di essere qui!</p>}
-        {finished && <p>Ho finito questo tutorial!</p>}
-        {goal === 3 ? <p>Il mio obiettivo è finire in 3 giorni.</p> : <p>Il mio obiettivo non è 3 giorni.</p>}
-
-        <Footer />
-	</body>
-</html>
+</BaseLayout>
