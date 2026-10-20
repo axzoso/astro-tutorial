@@ -1,4 +1,5 @@
 ---
+layout: ../../layouts/MarkdownPostLayout.astro
 title: 'Il mio primo articolo del blog'
 pubDate: 2022-07-01
 description: 'Questo è il primo articolo del mio nuovo blog Astro.'
@@ -10,6 +11,7 @@ tags: ["astro", "blogging", "imparare in pubblico"]
 ---
 
 Benvenuto nel mio _nuovo blog_ sull'apprendimento di Astro! Qui, condividerò il mio percorso di apprendimento mentre costruisco un nuovo sito web.
+
 
 ## Cosa ho realizzato
 
