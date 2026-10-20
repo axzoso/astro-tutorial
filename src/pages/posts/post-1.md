@@ -8,9 +8,6 @@ image:
     alt: 'Il logo di Astro su uno sfondo scuro con un bagliore rosa.'
 tags: ["astro", "blogging", "imparare in pubblico"]
 ---
-# Il mio primo articolo del blog
-
-Pubblicato il: 2022-07-01
 
 Benvenuto nel mio _nuovo blog_ sull'apprendimento di Astro! Qui, condividerò il mio percorso di apprendimento mentre costruisco un nuovo sito web.
 
