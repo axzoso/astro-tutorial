@@ -7,7 +7,7 @@ author: 'Studente Astro'
 image:
     url: 'https://docs.astro.build/assets/rose.webp'
     alt: 'Il logo di Astro su uno sfondo scuro con un bagliore rosa.'
-tags: ["astro", "blogging", "learning in public"]
+tags: ["astro", "blogging", "learning in public", "prova"]
 ---
 
 Benvenuto nel mio _nuovo blog_ sull'apprendimento di Astro! Qui, condividerò il mio percorso di apprendimento mentre costruisco un nuovo sito web.
